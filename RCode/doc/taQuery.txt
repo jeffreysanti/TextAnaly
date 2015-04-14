@@ -1,0 +1,18 @@
+This function allows raw query execution on the database into R.
+
+API: taQuery(query: Character)
+
+It will return a matrix with the data in string representation
+
+Example:
+a <- taLoad("heights_sm.db")
+mat <- taQuery(a, "SELECT Pos, neg, wcnt, Pos - neg FROM slst")
+print(mat)
+
+Now Say we want to order the results to find the most negative sentence.
+We also want to sort by word count if two sentences have equal negativity.
+
+mat <- mat[with(mat, order(-Neg, wcnt)), ]
+print(mat)
+
+

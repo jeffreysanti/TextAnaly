@@ -1,0 +1,24 @@
+This returns a data.frame containing section data for all (or specified)
+section(s). Section data includes the following information:
+
+* Section ID
+* Sentence Count
+* Word Count
+* Lexical Tokens (meaningful word count)
+* Unique Word Count
+* Complex Word Count (>= 3 syllables)
+* Total Syllable Count
+
+API: taSections(context, sec: list)
+
+If sec is non-empty, only data on specified sections
+is shown. Otherwise (default) all sections are displayed.
+
+It will be sorted by section id.
+
+Example:
+
+a <- taLoad("heights_sm.db")
+mat <- taSections(a, c(1,2,4))
+
+

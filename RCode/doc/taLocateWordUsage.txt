@@ -1,0 +1,17 @@
+This returns a data.frame containing each sentence where one/all of a
+set of words is used.
+
+If containsAll is TRUE, only sentences containing each listed word
+is returned. By default FALSE, any one of the words will trigger
+a match.
+
+Section IDs can also be filtered.
+
+API: taLocateWordUsage(context, words: vector, secs, containsAll=FALSE)
+
+Example:
+
+a <- taLoad("multi.db")
+mat <- taLocateWordUsage(a, c("summer", "lights", "signs"))
+
+

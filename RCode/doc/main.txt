@@ -1,0 +1,8 @@
+--- Getting Started ---
+
+In order to analyze data you first need to create an analysis object:
+
+a <- taLoad("pathToDb.db")   # Make sure text is already analyzed
+
+This object is the first paramater for all other methods
+

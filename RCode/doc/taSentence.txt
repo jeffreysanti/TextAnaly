@@ -1,0 +1,27 @@
+This returns a data.frame containing sentence data for all the specified
+sentences.
+
+* Word Count
+* Lexical Tokens (meaningful word count)
+* Unique Word Count
+* Complex Word Count (>= 3 syllables)
+* Total Syllable Count
+* Full Text
+
+API: taSentence(context, lst: *)
+
+lst can be either a list of characters denoteing section:sentence pairs
+* ie: c("4:2", "5:2", "6:2")
+OR it can be a data.frame with a sec and sent column as returned by
+various methods like taSentiment with sentence data TRUE
+
+
+Example:
+
+mat <- taSentence(a, c("4:2", "5:2", "6:2"))
+
+OR [All in section 3 with high positivity]:
+mat <- taSentiment(a, TRUE, 3)
+mat <- taFilterAtLeast(mat, "Pos", 0.005)
+taSentence(a, mat)
+

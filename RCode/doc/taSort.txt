@@ -1,0 +1,17 @@
+This returns a sorted data.frame containing the same data
+sorted by the specified column names.
+
+API: taSort(mat: data.frame, cols: list)
+
+To sort in desending order, preceed the column name with
+a minus sign
+
+
+Example:
+
+mat <- taSentiment(a, TRUE)
+mat <- taSort(mat, c("Pos", "-sec", "-sent"))
+
+This sorts the sentences by increseing positivity.
+Where positivity scores are equal, sentneces are in
+decending chronological order.

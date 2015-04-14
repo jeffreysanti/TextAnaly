@@ -1,0 +1,17 @@
+This returns a data.frame containing all of the sentiment data collected
+by the analysis for the sentences you specify. Sentiment is determined 
+using the inquierer lexicon, and is stored as a double value. Here it is 
+returned as sentiment per word count in each sentence.
+
+
+API: taSentenceSentiment(context, lst: *)
+
+lst can be either a list of characters denoteing section:sentence pairs
+* ie: c("4:2", "5:2", "6:2")
+OR it can be a data.frame with a sec and sent column as returned by
+various methods like taSentiment with sentence data TRUE
+
+
+Example:
+
+mat <- taSentenceSentiment(a, c("4:2", "5:2", "6:2"))

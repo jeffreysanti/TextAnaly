@@ -1,0 +1,29 @@
+This returns a data.frame containing a list of all instances
+where a particular relation exists between two entities
+
+You can specify lists of entities as well, but you then
+lose the ability to control which are compared against
+which others [all combinations tested]
+
+The results are sorted by their appearance in the text.
+You can limit which sections are scanned.
+
+Because entities are sometimes multiple words, you may have to
+include wildcard operators '%' before and/or after your search
+terms. This may include entities you did not intend.
+
+For convience, the number of rows is printed out after executing
+in case you are storing it to a data.frame.
+
+
+API: taRelations(context, words1:list, words2:list, sections=list())
+
+NOTE: neither words lists can be an empty list
+To see a list of related words, see taRelationsSummary()
+
+Example:
+
+a <- taLoad("heights_sm.db")
+mat <- taRelations(a, "it", "fall")
+
+

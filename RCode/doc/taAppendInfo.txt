@@ -1,0 +1,29 @@
+This returns a data frame with an additional column.
+The column added is determined by the param value.
+
+Below is a list of possible param values:
+
+* lexdens [LexicalDensity]
+* gfog [GunningFogIndex]
+* flki [FleschKincaidGradeLevel]
+
+
+
+Note: To work as intended each param value has required
+columns. If an invalid param value was given, an error will be
+printed in addition to the original dataframe being returned.
+
+Each Paramater has a helper function as well:
+for instance taAppendLexicalDensity(mat) is equivilant to:
+taAppendInfo(mat, "lexdens")
+
+API: taAppendInfo(context, param: text)
+
+
+Example:
+
+a <- taLoad("heights_sm.db")
+mat <- taAllSentences(a)
+mat <- taAppendInfo(mat, "lexdens")
+
+

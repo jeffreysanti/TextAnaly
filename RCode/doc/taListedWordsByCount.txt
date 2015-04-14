@@ -1,0 +1,27 @@
+This returns a data.frame containing the number of times each word
+specified is contained within the text.
+
+
+Only words specified in the stoplist are shown in the count
+list.
+
+Data will be automatically sorted by count, descending.
+
+It will look at data in all the given sections by sec.
+If sec is empty [default] all sections will be analyzed
+
+API: taListedWordsByCount(context, wordList, sec=list())
+
+Example:
+
+a <- taLoad("multi.db")
+mat <- taListedWordsByCount(a, c("a", "the", "he", "she", "it", "i", "you", "they", "we", ","))
+
+
+To see the top 10 words specified:
+mat[1:10,]
+
+
+NOTE: To show all words except thoes explicitly excluded, see:
+taWordsByCount
+

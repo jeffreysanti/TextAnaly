@@ -1,0 +1,20 @@
+This returns a frame containing all equivilant words (sharing common root)
+
+
+API: taAlternateWords(context, words: list)
+
+
+Example:
+
+a <- taLoad("heights_sm.db")
+taAlternateWords(a, c("man", "yell"))
+
+#       word
+#  1     man
+#  2    mans
+#  3     men
+#  4    yell
+#  5  yelled
+#  6 yelling
+
+

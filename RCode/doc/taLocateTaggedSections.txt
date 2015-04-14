@@ -1,0 +1,24 @@
+This returns a data.frame containing all of the sections and
+sentences containing the specified tag name. It will also show 
+the value the section gave to the tag.
+
+NOTE: Sections may appear multiple times if the tag
+shows up repediably.
+
+
+API: taLocateTaggedSections(context, tag:string, sec: list)
+
+If sec is non-empty, only data on specified sections
+is shown. Otherwise (default) all sections are displayed.
+
+It will be sorted chronologically by textual order.
+
+Note: tags are compared using "LIKE," so you may include
+the wildcard operator '%'
+
+Example:
+
+a <- taLoad("heights_sm.db")
+taLocateTaggedSections(a, "MONTH")
+
+

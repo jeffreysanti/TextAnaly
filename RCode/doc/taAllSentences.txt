@@ -1,0 +1,22 @@
+This returns a data.frame containing sentence data for all sentences.
+
+* Section ID
+* Sentence ID
+* Word Count
+* Lexical Tokens (meaningful word count)
+* Unique Word Count
+* Complex Word Count (>= 3 syllables)
+* Total Syllable Count
+
+API: taAllSentences(context)
+
+It will be sorted by section id, then sentence id.
+
+No Full Text is show for this.
+
+Example:
+
+a <- taLoad("heights_sm.db")
+mat <- taAllSentences(a)
+
+

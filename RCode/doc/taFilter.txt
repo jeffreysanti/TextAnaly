@@ -1,0 +1,31 @@
+This utility function returns an identical data.frame without
+any rows that contain violating data.
+
+You specify a column name, and a constraint for the results.
+
+
+API: taFilterAtLeast(mat: data.frame, colname: text, minVal: numeric)
+API: taFilterAtMost(mat: data.frame, colname: text, maxVal: numeric)
+API: taFilterEqual(mat: data.frame, colname: text, val: list)
+API: taFilterNotEqual(mat: data.frame, colname: text, val: list)
+
+Note: For taFilterEqual and taFilterNotEqual, you may give a vector or list
+of possible values to filter/filter out.
+
+Example:
+
+a <- taLoad("exa.db")
+mat <- taWordsByCount(a)
+mat <- taFilterAtLeast(mat, "count", 3)
+
+mat Contains the distribution of words where each word appears
+at least 3 times.
+
+Example 2:
+a <- taLoad("exa.db")
+mat <- taWordsByCount(a)
+ignore = c("a", "the", "people")
+mat <- taFilterNotEqual(mat, "root", ignore)
+
+This removes all rows with the words: a,the,people
+

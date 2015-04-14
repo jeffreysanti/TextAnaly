@@ -1,0 +1,14 @@
+This returns a data.frame containing the usage ratio of the
+given words (agregate ammount) appearing in each section.
+
+If aggregate is TRUE, count data will be based on cummulative 
+totals, otherwise it will be the count in that section.
+
+API: taWordDistNormalized(context, words: vector, aggregate=FALSE)
+
+Example:
+
+a <- taLoad("multi.db")
+mat <- taWordDistNormalized(a, c("summer", "lights", "signs"))
+
+

@@ -1,0 +1,26 @@
+This returns a data.frame containing sentence data for all (or specified)
+sentences within specified section.
+
+* Sentence ID
+* Word Count
+* Lexical Tokens (meaningful word count)
+* Unique Word Count
+* Complex Word Count (>= 3 syllables)
+* Total Syllable Count
+* [Full Text]
+
+API: taSentencesBySection(context, sec: integer, showText=FALSE, sent: list)
+
+If sec is non-empty, only data on specified sentences within sec
+is shown. Otherwise (default) all sentences in section are displayed.
+
+It will be sorted by sentence id.
+
+If showText is set to true, fulltext of the sentence is included.
+
+Example:
+
+a <- taLoad("heights_sm.db")
+mat <- taSentencesBySection(a, 3, c(1,2,4))
+
+

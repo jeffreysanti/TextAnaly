@@ -1,0 +1,14 @@
+This returns a data.frame containing the number of times any of the
+given words (agregate ammount) appear in each section.
+
+If aggregate is TRUE, count data will be a cummulative total,
+otherwise it will be the count in that section.
+
+API: taWordDist(context, words: vector, aggregate=FALSE)
+
+Example:
+
+a <- taLoad("multi.db")
+mat <- taWordDist(a, c("summer", "lights", "signs"))
+
+

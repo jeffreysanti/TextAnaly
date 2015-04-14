@@ -1,0 +1,8 @@
+This function loads the database containing your analyzed text
+into R. Once done, you may manipulate the data.
+
+API: taLoad(filePath: Character)
+
+If something goes wrong, an explanation will be printed to the screen.
+Also, the return value will be NULL.
+

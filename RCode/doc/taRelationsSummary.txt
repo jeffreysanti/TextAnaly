@@ -1,0 +1,28 @@
+This returns a data.frame containing all known relations
+to the specified entities
+
+
+API: taRelationsSummary(context, words:list, sections=list())
+
+NOTE: words cannot be an empty list
+
+Because entities are sometimes multiple words, you may have to
+include wildcard operators '%' before and/or after your search
+terms. This may include entities you did not intend.
+
+For convience, the number of rows is printed out after executing
+in case you are storing it to a data.frame.
+
+The count for each type of relation will be totaled for all
+occurances in all sections. If you want to see how many per
+section see taRelations
+
+You can limit the search to specific sections as well.
+
+
+Example:
+
+a <- taLoad("heights_sm.db")
+mat <- taRelationsSummary(a, c("liberty", "%freedom%"))
+
+
