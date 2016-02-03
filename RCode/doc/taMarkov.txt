@@ -1,0 +1,17 @@
+This returns a context for generating
+sentences using Markov Chains!
+
+You can optionally enable auto correction of grammer
+or word substitution.
+
+API: taMarkov(context, bgramProb=0, grammerFix=FALSE,
+          sub=FALSE, subNoun=0.2, subAdj=0.2)
+
+bgramProb controls the probability that on any
+given iteration, the generator using
+bigrams instead of trigrams for the
+next word.
+
+Context is a normal instance obtained by taLoad.
+
+See: taMarkovGen*

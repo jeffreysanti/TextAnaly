@@ -1,0 +1,16 @@
+Generates sentences using markov chains
+which begin with a word and optionally a
+following word.
+
+count is the number of sentences to generate
+
+API: taMarkovGenStarting(mcontext, word1, word2="", count=1)
+
+Example:
+
+a <- taLoad("heights_sm.db")
+m <- taMarkov(a)
+taMarkovGenStarting(m, "once", "upon")
+
+
+

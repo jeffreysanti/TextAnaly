@@ -40,6 +40,25 @@ public class Main {
         AnalysisCore.endAnalysis();
     }
     
+    public static void analyzeDir(String db, String dir, int startno, int endno, int threads)
+    {
+        AnalysisCore.initialize("MODELS/english-left3words-distsim.tagger",
+                                "MODELS/englishPCFG.ser.gz",
+                                "MODELS/english.all.3class.distsim.crf.ser.gz",
+                                "MODELS/inquirer.db",
+                                db);
+        Analyzer a = new Analyzer(threads);
+        for(int i=startno; i<=endno; i++){
+            try {
+                a.addJob(new Section(new Scanner(new File(dir+"/"+i+".txt")).useDelimiter("\\Z").next()));
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        a.run();
+        AnalysisCore.endAnalysis();
+    }
+    
     public static void view(String dir)
     {
         AnalysisCore.initalizeNoAnalysisRun("MODELS/inquirer.db");
@@ -50,9 +69,7 @@ public class Main {
     {   
         //analyze("EXA", 22, 4);
         //view("EXA");
-        
-        
-        
+        analyzeDir("tcitr.db","/home/jeffrey/Documents/college/markov_chains_pres", 1,26, 4);
         
     }
 }

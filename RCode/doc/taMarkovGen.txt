@@ -1,0 +1,14 @@
+Generates sentences using markov chains.
+
+count is the number of sentences to generate
+
+API: taMarkovGen(mcontext, count=1)
+
+Example:
+
+a <- taLoad("heights_sm.db")
+m <- taMarkov(a)
+taMarkovGen(m, 10)
+
+
+

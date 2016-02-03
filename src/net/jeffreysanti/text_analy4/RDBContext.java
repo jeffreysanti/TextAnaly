@@ -643,7 +643,7 @@ public class RDBContext {
         return dtaSet.size();
     }
     
-    public int sectionsWithTag(String tag, int [] secs) throws SQLException{
+    public int sentencesWithTag(String tag, int [] secs) throws SQLException{
         PreparedStatement stmt;
         if(secs.length == 0){
             stmt = db.prepareStatement("SELECT section, sent,val FROM tags WHERE name LIKE ? ORDER BY SECTION ASC, sent ASC");
@@ -667,6 +667,28 @@ public class RDBContext {
         }
         processResults(stmt.executeQuery());
         stmt.close();
+        return dtaSet.size();
+    }
+    
+    public int getSectionTagValues(String[] tags) throws SQLException{
+        PreparedStatement stmt;
+        String query = "SELECT sec ";
+        for(String t : tags){
+            query += ", (SELECT val FROM tags WHERE type=1 AND section=secs.sec AND name = ?) ";
+        }
+        query += "FROM secs";
+        stmt = db.prepareStatement(query);
+        for(int i=0; i<tags.length; i++){
+            stmt.setString(i+1, tags[i]);
+        }
+        
+        processResults(stmt.executeQuery());
+        stmt.close();
+        dataSetColNames = new String[1+tags.length];
+        dataSetColNames[0] = "sec";
+        for(int i=0; i<tags.length; i++){
+            dataSetColNames[i+1] = tags[i];
+        }
         return dtaSet.size();
     }
     

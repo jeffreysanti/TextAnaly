@@ -1,0 +1,22 @@
+Generates sentences using markov chains which
+contain a specified word.
+
+Note: This is done by randomly generating
+sentences until one contains the word you
+request. If a word is never found it will loop
+for at most timeout iterations before giving up;
+therefore, there may not be count sentences
+returned. This is to prevent infinite loops.
+
+count is the number of sentences to generate
+
+API: taMarkovGenContaining(mcontext, word, count=1, timeout=500)
+
+Example:
+
+a <- taLoad("heights_sm.db")
+m <- taMarkov(a)
+taMarkovGenContaining(m, "grass", 10)
+
+
+

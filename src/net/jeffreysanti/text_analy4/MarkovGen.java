@@ -43,6 +43,10 @@ public class MarkovGen {
         langTool = null;
     }
     
+    public MarkovGen(RDBContext rc, double bprob){
+        this(rc.getDB(), bprob);
+    }
+    
     public void enableWordSubstituer(double nouns, double adjs)
     {
         nounSubProb = nouns;
@@ -325,20 +329,20 @@ public class MarkovGen {
         return "";
     }
     
-    public void genText(){
+    public String genText(){
         ArrayList<String> chain = getSentenceStart("", 0);
        
-        System.out.println(finishSentence(chain));
+        return finishSentence(chain);
     }
     
-    public void genTextStarting(String first){
+    public String genTextStarting(String first){
         first = first.toLowerCase();
         ArrayList<String> chain = getSentenceStart(first, 0);
         
-        System.out.println(finishSentence(chain));
+        return finishSentence(chain);
     }
     
-    public void genTextStarting(String first, String second){
+    public String genTextStarting(String first, String second){
         first = first.toLowerCase();
         second = second.toLowerCase();
         
@@ -346,14 +350,17 @@ public class MarkovGen {
         chain.add(first);
         chain.add(second);
         
-        System.out.println(finishSentence(chain));
+        return finishSentence(chain);
     }
     
-    public void genContaining(String word){
-        genContaining(word, 500);
+    public String genContaining(String word){
+        String ret = genContaining(word, 500);
+        return ret;
     }
     
-    public void genContaining(String word, int maxAttempts){
+    
+    
+    public String genContaining(String word, int maxAttempts){
         ArrayList<String> words = new ArrayList();
         try {
             PreparedStatement stmt = db.prepareStatement("SELECT word FROM altwords WHERE root=(SELECT root FROM altwords " + 
@@ -370,18 +377,18 @@ public class MarkovGen {
         }
         
         if(words.isEmpty())
-            return;
+            return "";
         
         for(int i=0; i<maxAttempts; i++){
             ArrayList<String> chain = getSentenceStart("", 0);
             String sent_txt = finishSentence(chain);
             for(String s : words){
                 if(chain.contains(s)){ // we have a match
-                    System.out.println(sent_txt);
-                    return;
+                    return sent_txt;
                 }
             }
         }
+        return "";
     }
     
      

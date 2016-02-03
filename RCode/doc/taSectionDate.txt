@@ -1,0 +1,17 @@
+This returns a data.frame containing the section number
+and the date.
+
+Note: This requires each section to have a DAY,MONTH,YEAR
+tag. Otherwise the section will be the current date.
+
+
+API: taSectionDate(context)
+
+It will be sorted by section id.
+
+Example:
+
+a <- taLoad("heights_sm.db")
+mat <- taSectionDate(a)
+
+

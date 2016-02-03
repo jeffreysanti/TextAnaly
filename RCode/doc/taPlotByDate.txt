@@ -1,0 +1,11 @@
+This plots data with date as the x-axis
+
+
+API: taPlotByDate(date:list, other:list)
+
+Example:
+
+Plotting Aggregate Word Count By Date:
+taPlotByDate(taSectionDate(context)$date, taColumnToAggregate(taSections(context)$wcnt))
+
+

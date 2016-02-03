@@ -1,0 +1,16 @@
+This returns a data.frame containing all of the
+sections and the tag values specified.
+
+Sections not containing the tag will show up blank
+
+
+API: taSectionsTagValue(context, tags:list)
+
+It will be sorted chronologically by section.
+
+Example:
+
+a <- taLoad("heights_sm.db")
+taSectionsTagValue(a, c("DAY", "MONTH", "YEAR"))
+
+

@@ -1,5 +1,5 @@
-main:taLoad
-taLoad:main
+main:taLoad;taMarkov
+taLoad:main;taMarkov
 taQuery:
 taSentiment:taSectionSentiment;taSentenceSentiment
 taSectionSentiment:taSentenceSentiment;taSentiment
@@ -15,10 +15,17 @@ taSentence:taSentencesBySection;taAllSentences
 taAppendInfo:
 taRelationsSummary:taRelations
 taRelations:taRelationsSummary
-taLocateTaggedSections:
+taLocateTaggedSentences:
 taFilter:
 taLocateWordUsage:
 taAlternateWords:
 taWordDistNormalized:taWordDist
-
+taSectionsTagValue:
+taSectionDate:
+taColumnToAggregate:
+taPlotByDate:
+taMarkov:taMarkovGen;taMarkovGenContaining;taMarkovGenStarting
+taMarkovGen:taMarkov
+taMarkovGenContaining:taMarkov
+taMarkovGenStarting:taMarkov
 

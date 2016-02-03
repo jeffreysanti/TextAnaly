@@ -1,4 +1,13 @@
 
+taColumnToAggregate <- function(col){
+	n = 0
+	for(i in 1:length(col)){
+		n = n + col[i]
+		col[i] <- n
+	}
+	return(col)
+}
+
 taSentiment <- function(context, bySentence=TRUE, sec=list()){
 	numr <- .jcall(context, "I", "sentiment", bySentence, .jarray(as.integer(sec)))
 	mat <- taProcessQuery(context, numr)
@@ -131,8 +140,14 @@ taRelations <- function(context, words1, words2, sections=list()){
 	return(mat)
 }
 
-taLocateTaggedSections <- function(context, tag, secs=list()){
-	numr <- .jcall(context, "I", "sectionsWithTag", as.character(tag), .jarray(as.integer(secs)))
+taLocateTaggedSentences <- function(context, tag, secs=list()){
+	numr <- .jcall(context, "I", "sentencesWithTag", as.character(tag), .jarray(as.integer(secs)))
+	mat <- taProcessQuery(context, numr)
+	return(mat)
+}
+
+taSectionsTagValue <- function(context, tag){
+	numr <- .jcall(context, "I", "getSectionTagValues", .jarray(as.character(tag)))
 	mat <- taProcessQuery(context, numr)
 	return(mat)
 }
