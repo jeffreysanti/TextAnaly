@@ -3,8 +3,8 @@ dist/
 lib/
 .Rprofile
 
-nbproject/
 
 
 *~
 
+/nbproject/private/

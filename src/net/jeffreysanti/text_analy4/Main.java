@@ -12,9 +12,6 @@ import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import net.jeffreysanti.text_analy4.SectionSplitter.SplitMethod;
-import net.jeffreysanti.text_analy4.tomcatview.TomcatView;
-
 /**
  *
  * @author jeffrey
@@ -69,7 +66,7 @@ public class Main {
     {   
         //analyze("EXA", 22, 4);
         //view("EXA");
-        analyzeDir("tcitr.db","/home/jeffrey/Documents/college/markov_chains_pres", 1,26, 4);
+        //analyzeDir("tcitr.db","/home/jeffrey/Documents/college/markov_chains_pres", 1,26, 4);
         
     }
 }
