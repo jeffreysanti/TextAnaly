@@ -1,0 +1,12 @@
+Lists all 2-word pairs which follow another sorted
+by asjacent probabilities.
+
+
+
+API: taTriGrams(context, word1, word2)
+
+You can specify one or two words for a more specific search.
+
+
+
+

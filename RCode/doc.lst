@@ -28,4 +28,8 @@ taMarkov:taMarkovGen;taMarkovGenContaining;taMarkovGenStarting
 taMarkovGen:taMarkov
 taMarkovGenContaining:taMarkov
 taMarkovGenStarting:taMarkov
+taBiGrams:taTriGrams;taSentenceStart
+taTriGrams:taBiGrams;taSentenceStart
+taSentenceStart:taBiGrams;taTriGrams
+
 

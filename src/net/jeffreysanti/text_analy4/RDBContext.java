@@ -692,4 +692,44 @@ public class RDBContext {
         return dtaSet.size();
     }
     
+    
+    public int bigrams(String word) throws SQLException
+    {
+        PreparedStatement stmt = db.prepareStatement("SELECT word2,SUM(cnt) FROM biworddist WHERE word1=? "+
+                       "GROUP BY word1, word2 ORDER BY SUM(cnt), word2");
+        stmt.setString(1, word);
+        processResults(stmt.executeQuery());
+        stmt.close();
+        return dtaSet.size();
+    }
+    
+    public int trigrams(String word) throws SQLException
+    {
+        PreparedStatement stmt = db.prepareStatement("SELECT word2,word3,SUM(cnt) FROM triworddist WHERE word1=? "+
+                       "GROUP BY word1, word2, word3 ORDER BY SUM(cnt), word2, word3");
+        stmt.setString(1, word);
+        processResults(stmt.executeQuery());
+        stmt.close();
+        return dtaSet.size();
+    }
+    
+    public int trigrams(String word1, String word2) throws SQLException
+    {
+        PreparedStatement stmt = db.prepareStatement("SELECT word3,SUM(cnt) FROM triworddist WHERE word1=? AND word2=? "+
+                       "GROUP BY word1, word2, word3 ORDER BY SUM(cnt)");
+        stmt.setString(1, word1);
+        stmt.setString(2, word2);
+        processResults(stmt.executeQuery());
+        stmt.close();
+        return dtaSet.size();
+    }
+    
+    public int firstWords() throws SQLException
+    {
+        return bigrams(CANGram.VAL_SENT_START);
+    }
+    
+    
+    
+    
 }

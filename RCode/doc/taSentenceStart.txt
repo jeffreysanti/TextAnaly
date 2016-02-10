@@ -1,0 +1,11 @@
+Lists all words which begin a sentence sorted
+by occurance probabilities.
+
+
+
+API: taSentenceStart(context)
+
+
+
+
+

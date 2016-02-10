@@ -10,7 +10,7 @@ library(rJava)
 #
 #####################################################################
 
-.jinit("dist/text_analy4.jar")
+.jinit("dist/TextAnaly.jar")
 taContext__ <- .jnew("net/jeffreysanti/text_analy4/RInterface")
 .jcall(taContext__, "V", "initR")
 

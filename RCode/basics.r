@@ -178,6 +178,43 @@ taStopList <- function(){
 	return(inlist)
 }
 
+taBiGrams <- function(context, word){
+	numr <- .jcall(context, "I", "bigrams", word)
+	mat <- taProcessQuery(context, numr)
+	names(mat)[names(mat)=="SUM(cnt)"] <- "count"
+	probs <- mat$count / sum(mat$count)
+	mat["prob"] <- probs
+	return(mat)
+}
+
+taTriGrams <- function(context, word1, word2=""){
+	if(word2 == ""){
+		numr <- .jcall(context, "I", "trigrams", word1)
+		mat <- taProcessQuery(context, numr)
+		names(mat)[names(mat)=="SUM(cnt)"] <- "count"
+		probs <- mat$count / sum(mat$count)
+		mat["prob"] <- probs
+		return(mat)
+	}else{
+		numr <- .jcall(context, "I", "trigrams", word1, word2)
+		mat <- taProcessQuery(context, numr)
+		names(mat)[names(mat)=="SUM(cnt)"] <- "count"
+		probs <- mat$count / sum(mat$count)
+		mat["prob"] <- probs
+		return(mat)
+	}
+}
+
+taSentenceStart <- function(context){
+	numr <- .jcall(context, "I", "firstWords")
+	mat <- taProcessQuery(context, numr)
+	names(mat)[names(mat)=="SUM(cnt)"] <- "count"
+	probs <- mat$count / sum(mat$count)
+	mat["prob"] <- probs
+	return(mat)
+}
+
+
 
 
 
